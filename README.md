@@ -20,14 +20,36 @@ The goal is to automate the process of:
   - Jenkins master node images
 
 ### ☁️ Infrastructure Provisioning using Terraform
-- Uses Terraform to define and manage AWS infrastructure components
-- Follows modular design principles to separate concerns (network, security, compute, etc.)
-- Resources provisioned include:
-  - VPC, subnets, route tables, and gateways
-  - IAM roles and policies
-  - Security groups and firewall rules
-  - EC2 instances and Auto Scaling Groups
-  - Load balancers for high availability
+- Uses **Terraform** to define and manage AWS infrastructure components in a consistent and automated manner.
+- Adopts **modular design principles**, organizing infrastructure into reusable modules (e.g., networking, security, compute, DNS, certificates).
+- Enables repeatable, scalable, and auditable infrastructure deployment.
+
+#### Resources provisioned include:
+- **Networking:**
+  - Virtual Private Cloud (VPC) with public and private subnets
+  - Route Tables and Internet Gateways
+  - NAT Gateways for private subnet internet access
+
+- **Identity and Access:**
+  - IAM Roles, Instance Profiles, and Policies to follow least-privilege principle
+
+- **Security:**
+  - Security Groups and NACLs to control network traffic
+  - Firewall rules scoped per environment (e.g., dev)
+
+- **Compute:**
+  - Amazon EC2 instances for Jenkins and application workloads
+  - Auto Scaling Groups (ASG) for high availability and elasticity
+
+- **Load Balancing:**
+  - Application Load Balancer (ALB) to distribute traffic across ASG instances
+
+- **DNS & Certificates:**
+  - **Amazon Route 53** to manage DNS records and custom domain mapping for Jenkins and applications
+  - **AWS Certificate Manager (ACM)** to provision and manage SSL/TLS certificates for securing HTTPS endpoints
+
+- **Secrets Management:**
+  - **AWS Secrets Manager** is used to securely store and retrieve sensitive data such as credentials, API tokens, and environment variables
 
 ### 🚀 CI/CD Pipeline using Jenkins
 - Jenkins is installed and configured on a dedicated EC2 instance using a prebuilt AMI
@@ -35,11 +57,13 @@ The goal is to automate the process of:
   - Source code checkout
   - Terraform validation and deployment
   - Application build and deployment to EC2
+- Integrates with **AWS Secrets Manager** to securely inject secrets (e.g., credentials, DB passwords, API keys) into build and deployment stages without hardcoding
 - Uses scripted pipelines or Jenkins Job DSL for flexibility and version control
 
 ### 📦 Application Deployment on AWS
 - Application is deployed using an Auto Scaling Group with EC2 instances based on the custom-built AMI
 - Load balancer distributes traffic among healthy instances
+- Application retrieves secrets dynamically at runtime from **AWS Secrets Manager**, ensuring sensitive configurations are never stored in code
 - AMI updates and deployments are integrated into the CI/CD process
 
 ### 🔐 DevSecOps Tools Integration *(To be finalized)*
