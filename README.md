@@ -8,7 +8,13 @@ The goal is to automate the process of:
 ![Golden image creation](Assets/GoldenImageWorkFlow.png)
 
 - Provisioning AWS infrastructure in a consistent and repeatable manner   [Link](https://github.com/AmanSingh881/Infrastructure-as-Code-Scalable-Web-Hosting-Architecture-with-AWS-and-Terraform.git)
+
+![AWS Infra](Assets/AWS_infra.png)
+
 - Running a secure CI/CD pipeline that builds, tests, and deploys application code [Link](https://github.com/AmanSingh881/aws-devsecops-pipeline/tree/main/CI%20CD%20Pipeline)
+
+![CICD Flow](Assets/CICDFlow.png)
+
 - Integrating security controls at each layer
 
 ---
