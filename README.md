@@ -3,7 +3,7 @@
 This project demonstrates a complete **DevSecOps pipeline** using **Jenkins**, **Packer**, and **Terraform** on **AWS Cloud Infrastructure**. The solution is designed for a **single development environment** in a **single AWS region**, focusing on automation, infrastructure as code, and security integration throughout the CI/CD lifecycle.
 
 The goal is to automate the process of:
-- Building secure and reusable base images
+- Building secure and reusable base images  [Link](https://github.com/AmanSingh881/Creating-Golden-Image-Using-Packer.git)
 - Provisioning AWS infrastructure in a consistent and repeatable manner
 - Running a secure CI/CD pipeline that builds, tests, and deploys application code
 - Integrating security controls at each layer
