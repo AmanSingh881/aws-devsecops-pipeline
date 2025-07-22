@@ -4,6 +4,9 @@ This project demonstrates a complete **DevSecOps pipeline** using **Jenkins**, *
 
 The goal is to automate the process of:
 - Building secure and reusable base images  [Link](https://github.com/AmanSingh881/Creating-Golden-Image-Using-Packer.git)
+
+![Golden image creation](Assets/GoldenImageWorkFlow.png)
+
 - Provisioning AWS infrastructure in a consistent and repeatable manner   [Link](https://github.com/AmanSingh881/Infrastructure-as-Code-Scalable-Web-Hosting-Architecture-with-AWS-and-Terraform.git)
 - Running a secure CI/CD pipeline that builds, tests, and deploys application code [Link](https://github.com/AmanSingh881/aws-devsecops-pipeline/tree/main/CI%20CD%20Pipeline)
 - Integrating security controls at each layer
